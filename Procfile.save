@@ -1,2 +1,2 @@
-web: gunicorn proje_adı.wsgi --log-file -
+web: gunicorn adrsakaryatravel.wsgi --log-file -
 
