@@ -1,1 +1,1 @@
-web: gunicorn adrsakaryatravel.wsgi --log-file -
+web: gunicorn bung.wsgi --log-file -
