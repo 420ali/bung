@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-88p%*3p-8l)n$zlm%q_(v7+k7#nc_tq$_v-91b0gy$8twqqf4m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost']
+
 
 
 # Application definition
@@ -120,10 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-  BASE_DIR / 'static'
+    os.path.join(BASE_DIR, 'static')
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
