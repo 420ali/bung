@@ -48,6 +48,12 @@ hr{
   margin-bottom: 100px;
 }
 
+.first_image{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 /* Konaklama Bilgileri */
 .konaklama{
   margin-left: 80px;
@@ -177,5 +183,12 @@ hr{
   hr{
     margin-left: 10px;
   }
+
+  .first_image{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
 
 }
