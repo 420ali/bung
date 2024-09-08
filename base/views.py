@@ -13,10 +13,10 @@ def home(request):
     return render(request, 'home.html', context)
 
 def asibungalov(request):
-    return render(request, 'home.html', {'bungalov': 'Asi'})
+    return render(request, 'asi.html', {'bungalov': 'Asi'})
 
 def dogabungalov(request):
-    return render(request, 'home.html', {'bungalov': 'Doğa'})
+    return render(request, 'doga.html', {'bungalov': 'Doğa'})
 
 def yildizbungalov(request):
-    return render(request, 'home.html', {'bungalov': 'Yıldız'})
+    return render(request, 'yildiz.html', {'bungalov': 'Yıldız'})

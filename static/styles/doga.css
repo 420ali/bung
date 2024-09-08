@@ -1,0 +1,181 @@
+:root {
+  --primary-color: #e82574;
+  --primary-color-dark: #bc1c5c;
+  --text-dark: #0c0a09;
+  --text-light: #78716c;
+  --white: #ffffff;
+  --max-width: 1300px;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+hr{
+  margin-left: 80px;
+  margin-right: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-top: #78716c;
+}
+
+/* Başlık Kısmı */
+.baslik{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 40px;
+  margin-left: 80px;
+}
+
+.baslik h1{
+  color: #0c0a09;
+}
+
+.baslik h3{
+  color: var(--primary-color);
+  margin-top: 8px;
+}
+
+/* Fotoğraflar Kısmı */
+.images{
+  width: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+/* Konaklama Bilgileri */
+.konaklama{
+  margin-left: 80px;
+}
+
+.konaklama h3{
+  margin-top: 20px;
+}
+
+.konaklama p{
+  margin-top: 20px;
+}
+
+.konaklama ul{
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+/* Genel Özellikler */
+.genel_ozellikler{
+  margin-top: 40px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.genel_ozellikler ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+.mutfak{
+  margin-top: 40px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.mutfak ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+.icmekan{
+  margin-top: 40px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.icmekan ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+.dismekan{
+  margin-top: 40px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.dismekan ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+.uyari{
+  margin-left: 80px;
+  color: rgb(63, 112, 123);
+  background-color: rgb(200, 232, 238);
+  width: 1000px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+@media (width < 576px) {
+  .images{
+    margin-left: auto;
+  }
+
+  .konaklama{
+    margin-left: 10px;
+  }
+  .konaklama ul{
+    margin-left: 20px;
+  }
+
+  .genel_ozellikler{
+    margin-left: 10px;
+  }
+
+  .mutfak{
+    margin-left: 10px;
+  }
+
+  .icmekan{
+    margin-left: 10px;
+  }
+
+  .baslik{
+    margin-left: 10px;
+  }
+
+  .dismekan{
+    margin-left: 10px;
+  }
+
+  .uyari{
+    width: 290px;
+    margin-left: 10px;
+  }
+  
+  hr{
+    margin-left: 10px;
+  }
+
+}

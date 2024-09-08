@@ -43,6 +43,7 @@
 	</style>
 </head>
 <body>
+  
   <header class="header">
     <nav>
       <div class="nav__bar">
@@ -79,14 +80,6 @@
     </div>
   </section>
 
-	<!-- Modal için temel yapı -->
-	<div id="imageModal" class="modal" style="display: none;">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="bungalovImg">
-    <a class="prev" id="prevBtn">&#10094;</a>
-    <a class="next" id="nextBtn">&#10095;</a>
-  </div>
-
 
   <section class="section__container room__container">
     <p class="section__subheader">Bungalovlarımız</p>
@@ -95,7 +88,9 @@
 
       <div class="room__card" data-bungalow="asibungalov" data-bungalow-name="Asi Bungalov">
         <div class="room__card__image" data-bungalow="1">
-					<img src="{% static 'images/asibungalov/main.jpg' %}" alt="Asi Bungalov" class="bungalov-click" data-url="/asibungalov">
+          <a href="{% url 'asibungalov' %}">
+					  <img src="{% static 'images/asibungalov/main.jpg' %}" alt="Asi Bungalov" class="bungalov-click" data-url="/asibungalov">
+          </a>
 					<button class="nav-btn prev" data-bungalow="1">&lt;</button>
 					<button class="nav-btn next" data-bungalow="1">&gt;</button>
 					<div class="room__card__icons">
@@ -114,7 +109,9 @@
 
       <div class="room__card" data-bungalow="dogabungalov" data-bungalow-name="Doğa Bungalov">
         <div class="room__card__image" data-bungalow="2">
-          <img src="{% static 'images/dogabungalov/main.jpg' %}" alt="Doğa Bungalov" class="bungalov-click" data-url="/dogabungalov">
+          <a href="{% url 'dogabungalov' %}">
+            <img src="{% static 'images/dogabungalov/main.jpg' %}" alt="Doğa Bungalov" class="bungalov-click" data-url="/dogabungalov">
+          </a>
 					<button class="nav-btn prev" data-bungalow="2">&lt;</button>
         	<button class="nav-btn next" data-bungalow="2">&gt;</button>
           <div class="room__card__icons">
@@ -132,8 +129,10 @@
       </div>
       <div class="room__card" data-bungalow="yildizbungalov" data-bungalow-name="Yıldız Bungalov">
         <div class="room__card__image" data-bungalow="3">
-          <img src="{% static 'images/yildizbungalov/main.jpg' %}" alt="Yıldız Bungalov" class="bungalov-click" data-url="/dogabungalov">
-					<button class="nav-btn prev" data-bungalow="3">&lt;</button>
+          <a href="{% url 'yildizbungalov' %}">
+            <img src="{% static 'images/yildizbungalov/main.jpg' %}" alt="Yıldız Bungalov" class="bungalov-click" data-url="/dogabungalov">
+          </a>
+          <button class="nav-btn prev" data-bungalow="3">&lt;</button>
         	<button class="nav-btn next" data-bungalow="3">&gt;</button>
           <div class="room__card__icons">
             <span><i class="ri-heart-fill"></i></span>
@@ -266,90 +265,7 @@
     }
   </script>
   
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('bungalovImg');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const closeBtn = document.querySelector('.close');
   
-      let currentBungalow = '';
-      let currentImageIndex = 0;
-  
-      function showModal(bungalow, imageIndex) {
-        currentBungalow = bungalow;
-        currentImageIndex = imageIndex;
-  
-        // Belirli bungalov için fotoğraf yolunu al
-        const imagePaths = [
-          `/static/images/${bungalow}/main.jpg`,
-          `/static/images/${bungalow}/indoor.jpg`,
-          `/static/images/${bungalow}/outdoor.jpg`,
-          `/static/images/${bungalow}/other.jpg`
-        ];
-  
-        modalImg.src = imagePaths[imageIndex];
-        modal.style.display = 'block';
-  
-        // URL'yi güncelle
-        history.pushState(null, '', `/${bungalow}`);
-      }
-  
-      function showImage(index) {
-        const imagePaths = [
-          `/static/images/${currentBungalow}/main.jpg`,
-          `/static/images/${currentBungalow}/indoor.jpg`,
-          `/static/images/${currentBungalow}/outdoor.jpg`,
-          `/static/images/${currentBungalow}/other.jpg`
-        ];
-  
-        currentImageIndex = (index + imagePaths.length) % imagePaths.length;
-        modalImg.src = imagePaths[currentImageIndex];
-      }
-  
-      // Önceki ve sonraki butonlarının işlevlerini tanımla
-      prevBtn.addEventListener('click', function() {
-        showImage(currentImageIndex - 1);
-      });
-  
-      nextBtn.addEventListener('click', function() {
-        showImage(currentImageIndex + 1);
-      });
-  
-      // Modal kapatma butonunun işlevini tanımla
-      closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-      });
-  
-      // Bungalov fotoğraflarına tıklama olayını tanımla
-      document.querySelectorAll('.bungalov-click').forEach(function(element) {
-        element.addEventListener('click', function() {
-          const bungalow = this.getAttribute('data-url').substring(1); // URL'den "/" işaretini kaldır
-          const imageIndex = 0; // Varsayılan olarak ilk fotoğrafı göster
-  
-          showModal(bungalow, imageIndex);
-        });
-      });
-  
-      // URL ile modal açmak için
-      function openModalFromUrl() {
-        const url = window.location.pathname.substring(1);
-        if (url) {
-          const bungalow = url;
-          showModal(bungalow, 0); // Varsayılan olarak ilk fotoğrafı göster
-        }
-      }
-  
-      // Sayfa yüklendiğinde URL'yi kontrol et
-      openModalFromUrl();
-  
-      // URL değişikliklerini kontrol etmek için
-      window.addEventListener('popstate', function(event) {
-        openModalFromUrl();
-      });
-    });
-  </script>
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
